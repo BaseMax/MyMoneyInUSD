@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,36 +13,60 @@
             height: 100vh;
             background-color: #eef2f3;
             margin: 0;
+            padding: 20px;
         }
         .container {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: 350px;
+            width: 100%;
+            max-width: 400px;
             text-align: center;
+            box-sizing: border-box;
         }
         h2 {
             color: #333;
+            margin-bottom: 10px;
         }
         p {
             font-size: 14px;
             color: #666;
             margin-bottom: 20px;
         }
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            display: block;
+            margin-bottom: 5px;
+        }
         input {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border 0.3s ease-in-out;
+        }
+        input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
         }
         .result {
             margin-top: 15px;
             font-size: 18px;
             font-weight: bold;
             color: #2c3e50;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
         }
         .footer {
             margin-top: 20px;
@@ -52,6 +76,19 @@
         .footer a {
             color: #007bff;
             text-decoration: none;
+            font-weight: bold;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            input {
+                font-size: 14px;
+                padding: 8px;
+            }
+            h2 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -60,14 +97,20 @@
         <h2>USD Rate Calculator</h2>
         <p>Calculate how much you should receive today if your payment was billed at a previous exchange rate.</p>
         
-        <label for="firstRate">USD Rate on First Date:</label>
-        <input type="number" id="firstRate" placeholder="Enter first USD rate" oninput="calculateAmount()">
+        <div class="input-group">
+            <label for="firstRate">USD Rate on First Date:</label>
+            <input type="number" id="firstRate" placeholder="Enter first USD rate" oninput="calculateAmount()">
+        </div>
         
-        <label for="todayRate">USD Rate Today:</label>
-        <input type="number" id="todayRate" placeholder="Enter today's USD rate" oninput="calculateAmount()">
+        <div class="input-group">
+            <label for="todayRate">USD Rate Today:</label>
+            <input type="number" id="todayRate" placeholder="Enter today's USD rate" oninput="calculateAmount()">
+        </div>
         
-        <label for="billedAmount">Billed Amount in First Date:</label>
-        <input type="number" id="billedAmount" placeholder="Enter billed amount" oninput="calculateAmount()">
+        <div class="input-group">
+            <label for="billedAmount">Billed Amount in First Date:</label>
+            <input type="number" id="billedAmount" placeholder="Enter billed amount" oninput="calculateAmount()">
+        </div>
         
         <div class="result" id="result">You should receive: --</div>
         
