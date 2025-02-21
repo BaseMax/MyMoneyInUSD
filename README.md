@@ -1,5 +1,7 @@
 # USD Rate Calculator
 
+> Calculate how much you should receive today if your payment was billed at a previous exchange rate.
+
 A simple web-based calculator that helps you determine how much money you should receive today if your payment was billed at a previous exchange rate.
 
 ## Features
